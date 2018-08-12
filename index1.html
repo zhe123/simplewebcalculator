@@ -1,0 +1,59 @@
+<!--  
+ author:Zhemou Li
+ date:7/1/2018-7/3/2018
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Calculator App</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="cal1.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        
+    </head>
+    <body>
+        <form id="cal-form" >
+            <h4>I AM A Calculator</h4>
+            <div class="img-style" id="image">
+                <img v-bind:style="{height:heightpx,width:widthpx}" v-bind:src="'images/image.png'"/>
+            </div>
+            <label>X:</label>
+            <input name="x" type="number" v-on:input="validateInput" placeholder="Enter a number*" v-model="inputX" />
+            <br />
+            <br />
+            <label>Y:</label>
+            <input name="y" type="number" v-on:input="validateInput" placeholder="Enter a number*" v-model="inputY" />
+            <br />
+            <br />
+            <label>Operator </label>
+            <select id="operator" name="operator" >
+	          <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+	          
+            </select>
+            <br />
+            <br />
+            
+            <input class = "output" type="button"  value="Output" v-on:click="output" />
+            <p id="output">{{resultBar}}</p>
+            <div id="links">
+                <a v-bind:href="'http://google.com'">{{Google}}</a>
+                <a v-bind:style="{float:right}" v-bind:href="'http://baidu.com'">{{Baidu}}</a>
+            </div>    
+            
+        </form>
+        <form id="form-submission" action="mailhandling.php" method="post">
+            <h4>Form submission</h4>
+            Email: <input type="text" name="email"><br>
+            <input  type="text" name="message" v-model="msg">
+            <br/>
+            <input  class='submit' type="submit" name="submit" v-model="submit">
+        </form>
+        <script type="text/javascript" src="calvue.js"></script>
+    </body>
+
+</html>
